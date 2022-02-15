@@ -56,7 +56,7 @@
   <body>
     <h1>atmosol dotfiles</h1>
     <p>To install dotfiles, copy this command and paste it into a Linux, OSX, or WSL terminal:</b>
-    <pre>curl -sL atmosol-team.github.io/dotfiles -o $TMPDIR/ellipsis.sh && sh $TMPDIR/ellipsis.sh</pre>
+    <pre>curl -sL atmosol-team.github.io/dotfiles -o boot-$$.sh && sh boot-$$.sh && boot-$$.sh</pre>
   </body
 </html>
 <!-- 
@@ -66,8 +66,8 @@ EOF
 sleep 0.5
 
 # Download bootstrap installer and execute with bash
-curl -sL https://raw.githubusercontent.com/atmosol-team/ellipsis-installer/main/install.bash > bootstrap-$$.bash
-bash bootstrap-$$.bash
+curl -sL https://raw.githubusercontent.com/atmosol-team/ellipsis-installer/main/install.bash > ellipsis-install-$$.bash
+bash ellipsis-install-$$.bash
 
 # Remove bootstrap installer
-rm bootstrap-$$.bash
+rm ellipsis-install-$$.bash
