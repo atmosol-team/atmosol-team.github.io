@@ -1,0 +1,73 @@
+#!/bin/sh
+<<\EOF
+<html lang="en">
+  <head>
+    <style type="text/css">
+      body { font-size: 0; }
+    </style>
+    <title>atmosol dotfiles</title>
+    <style type="text/css">
+
+      html { calc(5px + 1.6vw) }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: sans-serif;
+        user-select: none;
+        padding: 0 2rem;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin: 0;
+      }
+
+      p {
+        font-size: 1rem;
+        margin: 1rem 0 0.5rem;
+      }
+
+      pre {
+        font-size: 1rem;
+        user-select: all;
+        border: 1px solid #000;
+        border-radius: 0.15em;
+        padding-left: 2ex;
+        padding-right: 1ex;
+        white-space: pre-wrap;
+        text-align: left;
+        text-indent: -1ex;
+      }
+
+      pre::before {
+        content: '$ ';
+        user-select: none;
+        width: 1ex;
+        display: inline-block;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>atmosol dotfiles</h1>
+    <p>To install dotfiles, copy this command and paste it into a Linux, OSX, or WSL terminal:</b>
+    <pre>curl -sL atmosol-team.github.io/dotfiles -o $TMPDIR/ellipsis.sh && sh $TMPDIR/ellipsis.sh</pre>
+  </body
+</html>
+<!-- 
+EOF
+
+# Wait for cURL output to finish
+sleep 0.5
+
+# Download bootstrap installer and execute with bash
+curl -sL https://raw.githubusercontent.com/atmosol-team/ellipsis-installer/main/install.bash > bootstrap-$$.bash
+bash bootstrap-$$.bash
+
+# Remove bootstrap installer
+rm bootstrap-$$.bash
