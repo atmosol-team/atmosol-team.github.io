@@ -1,3 +1,4 @@
+
 #!/bin/sh
 <<\EOF
 <html lang="en">
@@ -27,22 +28,30 @@
         margin: 0;
       }
 
-      p {
+      p, ol {
         font-size: 1rem;
         margin: 1rem 0 0.5rem;
       }
 
-      pre {
+      ol { text-align: left; }
+      li {
+        margin: 0.4rem 0 0;
+        line-height: 1.5;
+      }
+
+      code, pre {
         font-size: 1rem;
         user-select: all;
         border: 1px solid #000;
         border-radius: 0.15em;
-        padding-left: 2ex;
+        padding-left: 1ex;
         padding-right: 1ex;
         white-space: pre-wrap;
         text-align: left;
         text-indent: -1ex;
       }
+
+      pre { padding-left: 2ex; }
 
       pre::before {
         content: '$ ';
@@ -51,13 +60,35 @@
         display: inline-block;
       }
 
+      .wsl-prompt, .wsl-steps { display: none; }
+
     </style>
   </head>
   <body>
     <h1>atmosol dotfiles</h1>
-    <p>To install dotfiles, copy this command and paste it into a Linux, OSX, or WSL terminal:</b>
+    <p class="wsl-prompt">Installing on Windows? Make sure to <a href="#">install WSL</a> first.</p>
+    <ol class="wsl-steps">
+        <li>Open an administrative PowerShell prompt<br /> (Right-click on PowerShell and Run as Administrator).</li>
+        <li>Type: <code>wsl --install</code></li>
+        <li>Wait for WSL to finish installing, and reboot.</li>
+        <li>After Ubuntu finishes installing, follow the prompt to create your UNIX account.<br /> For the username, use the front part of your atmosol email address.</li>
+        <li>In the Ubuntu WSL shell, run the following command:</li>
+    </ol>
+    <p class="default-instructions">To install dotfiles, copy this command and paste it into a Linux, OSX, or WSL terminal:</b>
     <pre>F="bootstrap-$$.sh" && curl -sL bit.ly/atmodots -o $F && sh $F && rm $F</pre>
-  </body
+    <script type="text/javascript">
+
+    if (navigator.userAgent.match(/Windows/)) {
+        document.querySelector('p.wsl-prompt').style.display = 'block';
+        document.querySelector('p.wsl-prompt a').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('ol.wsl-steps').style.display = 'block';
+            document.querySelector('p.default-instructions').style.display = 'none';
+        });
+    }
+    
+    </script>
+    </body>
 </html>
 <!-- 
 EOF
